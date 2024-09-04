@@ -147,7 +147,8 @@ function main_with_gf_after(data="./data/data_WCP500.csv"; POIx=WCP_x, POIy=WCP_
     # TODO: fix normalized eq.
     nX = (X - min_x) / dx
     nY = (Y - min_y) / dy
-    nR = R / sqrt(dx ^2 + dy ^ 2)
+    # nR = R / sqrt(dx ^2 + dy ^ 2)
+    nR = R / sqrt(min(dx ^ 2, dy ^ 2))
     @info "(X,Y,R)=($X,$Y,$R)"
     @info "norm (X,Y,R)=($nX,$nY,$nR)"
     plot!(fig, [nX], [nY], color=:red, marker=:+, markersize=10, label=nothing)
