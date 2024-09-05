@@ -53,7 +53,7 @@ function main(data="./data/data_WCP500.csv"; X=WCP_x, Y=WCP_y, normalize=false)
 end
 
 
-function main_with_gf(data="./data/data_WCP500.csv"; POIx=WCP_x, POIy=WCP_y, normalize=false)
+function main_with_gf(data="./data/data_WCP500.csv", obase="./figures/data_with_gf"; POIx=WCP_x, POIy=WCP_y, normalize=false)
     df = CSV.File(data) |> DataFrame
     max_x, min_x = maximum(df.x), minimum(df.x)
     max_y, min_y = maximum(df.y), minimum(df.y)
@@ -98,7 +98,8 @@ function main_with_gf(data="./data/data_WCP500.csv"; POIx=WCP_x, POIy=WCP_y, nor
 
     # 保存
     suffix = normalize ? "_norm" : ""
-    savefig(fig, "figures/data_with_gf$(suffix).png")
+    oname = "$(obase)$(suffix).png"
+    savefig(fig, oname)
 end
 
 
