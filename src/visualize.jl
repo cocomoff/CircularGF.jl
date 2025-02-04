@@ -71,7 +71,8 @@ function main_with_gf(data="./data/data_WCP500.csv", obase="./figures/data_with_
     # 描画
     fig = plot(size=(500, 500))
 
-    X, Y, R = computing_geofence(data; normalize=normalize)
+    # X, Y, R = computing_geofence(data; normalize=normalize)
+    X, Y, R = computing_geofence(data)
 
     colors = distinguishable_colors(length(unique_users))
     for (i, user) in enumerate(unique_users)
